@@ -15,24 +15,165 @@
 
 <body>
   <div id="app">
-    hello World
+    <g-row>
+      <g-col class="demo-box" style="background-color: red" span="24" :ipad="{ span: 8 }" :pc="{ span: 4 }">1</g-col>
+      <g-col class="demo-box" style="background-color: pink" span="24" :ipad="{ span: 16 }" :pc="{ span: 20 }">2</g-col>
+    </g-row>
+    <div style="padding: 50px 100px">
+      <g-popover>
+        <template slot="content">
+          <div>我是 Popover <a href="http://qq.com">QQ</a></div>
+        </template>
+        <g-button>点击</g-button>
+      </g-popover>
+      <g-popover position="bottom">
+        <template slot="content">
+          <div>我是 Popover</div>
+        </template>
+        <g-button>点击</g-button>
+      </g-popover>
+      <g-popover position="left">
+        <template slot="content">
+          <div>我是 Popover</div>
+        </template>
+        <g-button>点击</g-button>
+      </g-popover>
+      <g-popover position="right">
+        <template slot="content">
+          <div>我是 Popover</div>
+        </template>
+        <g-button>点击</g-button>
+      </g-popover>
+      <g-popover style="margin-left: 100px" trigger="hover">
+        <template slot="content">
+          <div>我是 Popover</div>
+        </template>
+        <g-button>点击</g-button>
+      </g-popover>
+      <g-popover position="bottom" trigger="hover">
+        <template slot="content">
+          <div>我是 Popover</div>
+        </template>
+        <g-button>点击</g-button>
+      </g-popover>
+      <g-popover position="left" trigger="hover">
+        <template slot="content">
+          <div>我是 Popover</div>
+        </template>
+        <g-button>点击</g-button>
+      </g-popover>
+      <g-popover position="right" trigger="hover">
+        <template slot="content">
+          <div>我是 Popover</div>
+        </template>
+        <g-button>点击</g-button>
+      </g-popover>
+    </div>
 
+    <div class="box">
+      <g-tabs :selected="selected1" direction="horizontal">
+        <g-tabs-head>
+          <g-tabs-item name="1"> Tab1 </g-tabs-item>
+          <g-tabs-item name="2"> Tab2 </g-tabs-item>
+        </g-tabs-head>
+        <g-tabs-body>
+          <g-tabs-pane name="1">content 1</g-tabs-pane>
+          <g-tabs-pane name="2">content 2</g-tabs-pane>
+        </g-tabs-body>
+      </g-tabs>
 
-    <g-tabs :selected="selected" direction='horizontal'>
-      <g-tabs-head>
-        <g-tabs-item name="1">
-          <h3>12312312312</h3>
-        </g-tabs-item>
-        <g-tabs-item name="2">2</g-tabs-item>
-      </g-tabs-head>
-      <g-tabs-body>
-        <g-tabs-pane name="1">content 1</g-tabs-pane>
-        <g-tabs-pane name="2">content 2</g-tabs-pane>
-      </g-tabs-body>
-    </g-tabs>
-    <button @click="clickHandle">测试弹窗</button>
-    <button @click="clickHandle1">测试弹窗</button>
-    <button @click="clickHandle2">测试弹窗</button>
+      <g-tabs :selected="selected2" direction="vertical">
+        <g-tabs-head>
+          <g-tabs-item name="1">Tab1</g-tabs-item>
+          <g-tabs-item name="2">Tab2</g-tabs-item>
+          <g-tabs-item name="3">Tab3</g-tabs-item>
+        </g-tabs-head>
+        <g-tabs-body>
+          <g-tabs-pane name="1">Tab1相关内容</g-tabs-pane>
+          <g-tabs-pane name="2">Tab2相关内容</g-tabs-pane>
+          <g-tabs-pane name="3">Tab3相关内容</g-tabs-pane>
+        </g-tabs-body>
+      </g-tabs>
+    </div>
+
+    <g-button icon="loading" shape="circle" loading @click="test"></g-button>
+    <g-button icon="loading" loading>加载中</g-button>
+    <g-button type="primary" icon="loading" loading>加载中</g-button>
+    <g-button type="primary" shape="circle" icon="loading" loading></g-button>
+    <g-button shape="round">默认按钮</g-button>
+    <g-button shape="circle" icon="setting"></g-button>
+    <g-button type="primary">主要按钮</g-button>
+    <g-button type="primary" shape="round">主要按钮</g-button>
+    <g-button type="primary" shape="circle" icon="setting"></g-button>
+    <g-button icon="edit">编辑</g-button>
+    <g-button icon="search"></g-button>
+    <g-button type="primary" icon="edit">编辑</g-button>
+    <g-button type="primary" icon="search"></g-button>
+    <g-button disabled>置灰按钮</g-button>
+    <g-button-group>
+      <g-button icon="left">上一页</g-button>
+      <g-button icon="right" icon-position="right">下一页</g-button>
+    </g-button-group>
+    <g-button-group>
+      <g-button icon="left">上一页</g-button>
+      <g-button icon="left">上一页</g-button>
+      <g-button icon="left">上一页</g-button>
+      <g-button icon="left">上一页</g-button>
+    </g-button-group>
+    <g-button-group>
+      <g-button icon="edit" type="primary"></g-button>
+      <g-button icon="share" type="primary"></g-button>
+      <g-button icon="delete" icon-position="right" type="primary"></g-button>
+    </g-button-group>
+
+    <div class="box">
+      <g-collapse :selected.sync="collapseSelected">
+        <g-collapse-item title="标题1" name="1">
+          <div id="xxx">内容1内容1内容1内容1内容1内容1</div>
+          <div>内容1内容1内容1内容1内容1内容1</div>
+        </g-collapse-item>
+        <g-collapse-item title="标题2" name="2" :arrow="false">内容2内容2内容2内容2内容2内容2</g-collapse-item>
+        <g-collapse-item title="标题3" name="3">内容3内容3内容3内容3内容3内容3</g-collapse-item>
+        <g-collapse-item title="标题4" name="4">标题4标题4标题4标题4标题4标题4标题4</g-collapse-item>
+      </g-collapse>
+    </div>
+
+    <div class="box">
+      <g-input v-model="inputValue" placeholder="请输入用户名"></g-input>
+    </div>
+    <div class="box">
+      <g-input value="张三" disabled></g-input>
+    </div>
+    <div class="box">
+      <g-input value="张三" readonly></g-input>
+    </div>
+    <div class="box">
+      <g-input value="张三" error="输入有误"></g-input>
+    </div>
+    <div class="box">
+      <g-input value="张三" tip="请输入用户名"></g-input>
+    </div>
+    <div class="box">
+      <g-input prefix="setting" placeholder="请输入用户名"></g-input>
+    </div>
+    <div class="box">
+      <g-input suffix="setting" placeholder="请输入用户名"></g-input>
+    </div>
+    <div class="box">
+      <g-input addonbefore="http://" addonafter=".com" placeholder="请输入网址"></g-input>
+    </div>
+    <div class="box">
+      <g-input preicon="left" suficon="setting" placeholder="请输入网址"></g-input>
+    </div>
+    <div class="box">
+      <g-input suffix="search" placeholder="请输入用户名" @search="onSearch"></g-input>
+    </div>
+    <div class="box">
+      <g-input searchbutton="搜索" placeholder="请输入用户名" @search="onSearch"></g-input>
+    </div>
+    <div class="box">
+      <g-input searchbutton placeholder="请输入用户名" @search="onSearch"></g-input>
+    </div>
   </div>
 </body>
 
@@ -40,27 +181,32 @@
   new Vue({
     data() {
       return {
-        selected: "1"
+        selected1: '2',
+        selected2: '2',
+        collapseSelected: ['1'],
+        inputValue: '',
       }
     },
-
-    mounted: function () {
-    },
-
+    created() { },
     methods: {
-      clickHandle() {
-        console.log(this)
-        this.$toast('我在中间', { position: 'middle' })
+      test() {
+        console.log('点击事件')
+        this.$toast('<i>这是html标签</i>', {
+          position: 'top',
+          enableHtml: true,
+          autoClose: 2,
+          closeButton: {
+            text: '关闭',
+            callback: () => {
+              console.log('关闭的回调')
+            },
+          },
+        })
       },
-      clickHandle1() {
-        console.log(this)
-        this.$toast('我在上面', { position: 'top' })
+      onSearch() {
+        console.log(this.inputValue)
       },
-      clickHandle2() {
-        console.log(this)
-        this.$toast('我在下面', { position: 'bottom' })
-      }
-    }
+    },
   }).$mount('#app')
 </script>
 
