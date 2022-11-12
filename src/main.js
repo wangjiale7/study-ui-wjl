@@ -1,8 +1,9 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './App'
+import plugin from './plugin'
 
-Vue.config.productionTip = false
+Vue.use(plugin, { size: 'small' })
 
 new Vue({
-  render: h => h(App),
+  render: (h) => h(App),
 }).$mount('#app')

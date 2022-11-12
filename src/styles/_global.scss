@@ -1,0 +1,28 @@
+$border-color-hover: #666;
+$border-color: #999;
+$border-color-light: lighten($border-color, 30%);
+$border-radius: 4px;
+$box-shadow-color: rgba(0, 0, 0, 0.5);
+$button-active-bg: #eee;
+$button-bg: white;
+$button-height: 32px;
+$color: #333;
+$light-color: #666;
+$font-size: 14px;
+$small-font-size: 12px;
+$input-height: 32px;
+.box-shadow {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+$primary-color: #409EFF;
+$success-color: #67C23A;
+$warn-color: #E6A23C;
+$danger-color: #F56C6C;
+$default-color: #909399;
+$amount: 5%;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="./favicon.ico">
+  <title>vue-tour-landing</title>
+
+  <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+  <script src="./lib/study-ui-wjl.umd.js"></script>
+  <link rel="stylesheet" href="./lib/study-ui-wjl.css">
+</head>
+
+<body>
+  <div id="app">
+    hello World
+
+
+    <g-tabs :selected="selected" direction='horizontal'>
+      <g-tabs-head>
+        <g-tabs-item name="1">
+          <h3>12312312312</h3>
+        </g-tabs-item>
+        <g-tabs-item name="2">2</g-tabs-item>
+      </g-tabs-head>
+      <g-tabs-body>
+        <g-tabs-pane name="1">content 1</g-tabs-pane>
+        <g-tabs-pane name="2">content 2</g-tabs-pane>
+      </g-tabs-body>
+    </g-tabs>
+    <button @click="clickHandle">测试弹窗</button>
+    <button @click="clickHandle1">测试弹窗</button>
+    <button @click="clickHandle2">测试弹窗</button>
+  </div>
+</body>
+
+<script>
+  new Vue({
+    data() {
+      return {
+        selected: "1"
+      }
+    },
+
+    mounted: function () {
+    },
+
+    methods: {
+      clickHandle() {
+        console.log(this)
+        this.$toast('我在中间', { position: 'middle' })
+      },
+      clickHandle1() {
+        console.log(this)
+        this.$toast('我在上面', { position: 'top' })
+      },
+      clickHandle2() {
+        console.log(this)
+        this.$toast('我在下面', { position: 'bottom' })
+      }
+    }
+  }).$mount('#app')
+</script>
+
+</html>
